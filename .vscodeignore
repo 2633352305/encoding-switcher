@@ -1,0 +1,10 @@
+src/**
+esbuild.js
+tsconfig.json
+node_modules/**/node_modules/**
+**/*.map
+Sync_Master_Rece.c
+Sync_Master_Send.c
+.vscode/**
+**/.DS_Store
+.gitignore

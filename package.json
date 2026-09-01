@@ -1,0 +1,80 @@
+{
+  "name": "encoding-switcher",
+  "displayName": "编码自动切换器 (GB2312/UTF-8)",
+  "description": "自动检测文件编码并以正确编码打开，防止中文乱码；支持 UTF-8 与 GB2312 一键互相切换",
+  "version": "0.5.2",
+  "license": "MIT",
+  "keywords": [
+    "encoding",
+    "GB2312",
+    "GBK",
+    "UTF-8",
+    "乱码",
+    "编码",
+    "encoding converter"
+  ],
+  "publisher": "leoy",
+  "author": "上了个大笔当",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2633352305/encoding-switcher.git"
+  },
+  "bugs": {
+    "email": "2633352305@qq.com"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "encoding-switcher.toggleToUtf8",
+        "title": "以UTF-8编码保存",
+        "category": "编码切换"
+      },
+      {
+        "command": "encoding-switcher.toggleToGb2312",
+        "title": "以GB2312编码保存",
+        "category": "编码切换"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "encoding-switcher.toggleToUtf8",
+          "group": "navigation",
+          "when": "encoding-switcher:isGb2312"
+        },
+        {
+          "command": "encoding-switcher.toggleToGb2312",
+          "group": "navigation",
+          "when": "encoding-switcher:isUtf8"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.75.0",
+    "esbuild": "^0.19.0",
+    "ovsx": "^1.1.1",
+    "typescript": "^5.3.0",
+    "vsce": "^2.15.0"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.7.3"
+  }
+}
