@@ -2,7 +2,7 @@
   "name": "encoding-switcher",
   "displayName": "编码自动切换器 (GB2312/UTF-8)",
   "description": "自动检测文件编码并以正确编码打开，防止中文乱码；支持 UTF-8 与 GB2312 一键互相切换",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "license": "MIT",
   "keywords": [
     "encoding",
