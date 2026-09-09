@@ -1,0 +1,12 @@
+src/**
+esbuild.js
+tsconfig.json
+node_modules/**
+deploy.ps1
+**/*.map
+Sync_Master_Rece.c
+Sync_Master_Send.c
+.vscode/**
+**/.DS_Store
+.gitignore
+resources/icon.svg

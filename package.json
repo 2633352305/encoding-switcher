@@ -1,0 +1,126 @@
+{
+  "name": "encoding-switcher",
+  "displayName": "编码自动切换器 (GB2312/UTF-8)",
+  "description": "自动检测文件编码并以正确编码打开，防止中文乱码；支持 UTF-8 与 GB2312 一键互相切换",
+  "version": "0.9.9",
+  "icon": "resources/icon.png",
+  "license": "MIT",
+  "keywords": [
+    "encoding",
+    "GB2312",
+    "GBK",
+    "UTF-8",
+    "乱码",
+    "编码",
+    "encoding converter"
+  ],
+  "publisher": "leoy",
+  "author": "上了个大笔当",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2633352305/encoding-switcher.git"
+  },
+  "bugs": {
+    "email": "2633352305@qq.com"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "编码切换器（批量转换）",
+      "properties": {
+        "encoding-switcher.autoWorkspaceEncoding": {
+          "type": "boolean",
+          "default": true,
+          "description": "激活时自动设置工作区回退编码 files.encoding=gb2312（短中文 GB 文件防乱码根治；工作区已显式设置时不覆盖）"
+        },
+        "encoding-switcher.batch.exclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "output",
+            "node_modules",
+            ".git",
+            ".vscode"
+          ],
+          "description": "批量转换时跳过的目录名（不含路径，仅匹配目录名）"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "encoding-switcher.scopeFile",
+        "title": "转换范围：此文件（点击切换为整个文件夹全部）",
+        "category": "编码切换",
+        "icon": "resources/scope-file.svg"
+      },
+      {
+        "command": "encoding-switcher.scopeFolder",
+        "title": "转换范围：整个文件夹全部（点击切换回此文件）",
+        "category": "编码切换",
+        "icon": "resources/scope-folder.svg"
+      },
+      {
+        "command": "encoding-switcher.toggleToUtf8",
+        "title": "以UTF-8编码保存",
+        "category": "编码切换"
+      },
+      {
+        "command": "encoding-switcher.toggleToGb2312",
+        "title": "以GB2312编码保存",
+        "category": "编码切换"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "encoding-switcher.scopeFile",
+          "group": "navigation@1",
+          "when": "!encoding-switcher:scopeBatch && encoding-switcher:isSource"
+        },
+        {
+          "command": "encoding-switcher.scopeFolder",
+          "group": "navigation@1",
+          "when": "encoding-switcher:scopeBatch && encoding-switcher:isSource"
+        },
+        {
+          "command": "encoding-switcher.toggleToUtf8",
+          "group": "navigation@2",
+          "when": "encoding-switcher:isGb2312 && encoding-switcher:isSource"
+        },
+        {
+          "command": "encoding-switcher.toggleToGb2312",
+          "group": "navigation@2",
+          "when": "encoding-switcher:isUtf8 && encoding-switcher:isSource"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.75.0",
+    "esbuild": "^0.19.0",
+    "ovsx": "^1.1.1",
+    "typescript": "^5.3.0",
+    "vsce": "^2.15.0"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.7.3"
+  }
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -10 532 532" width="512" height="512" role="img">
+  <title>Auto Encoding Switcher — GB2312 ⇄ UTF-8</title>
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#414141"/>
+      <stop offset="1" stop-color="#2f2f2f"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f1f1f1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 底板 -->
+  <rect width="512" height="512" rx="44" fill="url(#tile)"/>
+
+  <!-- 白色文档：无阴影，描边定形 -->
+  <path d="M56 32 H320 L420 132 V464 a20 20 0 0 1-20 20 H56 a20 20 0 0 1-20-20 V52 a20 20 0 0 1 20-20 Z" fill="url(#paper)" stroke="#0f0f0f" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M320 32 v80 a20 20 0 0 0 20 20 h80 Z" fill="#cfcfcf"/>
+
+  <!-- 顶部文字行 -->
+  <g fill="#d9d9d9">
+    <rect x="84" y="70" width="154" height="18" rx="9"/>
+    <rect x="84" y="106" width="196" height="18" rx="9"/>
+  </g>
+
+  <!-- UTF-8 标签（出血到左缘，折角贴文档左缘 x=36） -->
+  <path d="M0 180 H230 a47 47 0 0 1 0 94 H0 Z" fill="#0f0f0f"/>
+  <path d="M0 274 H36 V306 Z" fill="#000000"/>
+  <text x="128" y="247" font-family="Arial, 'Helvetica Neue', sans-serif" font-weight="bold" font-size="56" fill="#ffffff" text-anchor="middle">UTF-8</text>
+
+  <!-- GB2312 标签（出血到左缘，折角贴文档左缘 x=36） -->
+  <path d="M0 306 H262 a47 47 0 0 1 0 94 H0 Z" fill="#0f0f0f"/>
+  <path d="M0 400 H36 V432 Z" fill="#000000"/>
+  <text x="142" y="373" font-family="Arial, 'Helvetica Neue', sans-serif" font-weight="bold" font-size="56" fill="#ffffff" text-anchor="middle">GB2312</text>
+
+  <!-- 底部文字行 -->
+  <rect x="84" y="452" width="146" height="18" rx="9" fill="#d9d9d9"/>
+
+  <!-- 双循环箭头：圆心(385,260) r=92，顺时针 -->
+  <g fill="none" stroke="#2E9BF0" stroke-width="28" stroke-linecap="round">
+    <path d="M298.6 228.5 A92 92 0 0 1 471.4 228.5"/>
+    <path d="M471.4 291.5 A92 92 0 0 1 298.6 291.5"/>
+  </g>
+  <g fill="#2E9BF0">
+    <path d="M485.1 266.1 L499.6 218.2 L443.2 238.8 Z"/>
+    <path d="M284.9 253.9 L270.4 301.8 L326.8 281.2 Z"/>
+  </g>
+
+  <!-- AUTO 徽章 -->
+  <rect x="292" y="440" width="120" height="46" rx="9" fill="#2E9BF0"/>
+  <text x="352" y="472" font-family="Arial, 'Helvetica Neue', sans-serif" font-weight="bold" font-size="27" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">AUTO</text>
+</svg>
